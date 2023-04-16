@@ -123,7 +123,9 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--config', dest='config')
     args = parser.parse_args()
     # Read config
-    config = AttrDict(yaml.load(open(args.config)))
+    with open(args.config, "r") as f:
+        config = AttrDict(yaml.load(f, Loader=yaml.FullLoader))
+             
     # Logger
     if not os.path.exists(config.model_dir):
         os.makedirs(config.model_dir)

@@ -1,2 +1,2 @@
-from transformer import Transformer
-from sat import SAT
+from models.transformer import Transformer
+from models.sat import SAT

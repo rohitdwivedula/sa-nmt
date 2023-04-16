@@ -4,7 +4,6 @@ import codecs
 import logging
 import os
 import time
-from itertools import izip
 from tempfile import mkstemp
 
 import numpy as np
@@ -106,7 +105,7 @@ class DataReader(object):
             for bucket in buckets:
                 caches[bucket] = [[], [], 0, 0]  # src sentences, dst sentences, src tokens, dst tokens
 
-            for src_sent, dst_sent in izip(open(src_shuf_path, 'r'), open(dst_shuf_path, 'r')):
+            for src_sent, dst_sent in zip(open(src_shuf_path, 'r'), open(dst_shuf_path, 'r')):
                 src_sent, dst_sent = src_sent.decode('utf8'), dst_sent.decode('utf8')
 
                 src_sent = src_sent.split()
@@ -211,7 +210,7 @@ class DataReader(object):
         """
 
         src_sents, dst_sents = [], []
-        for src_sent, dst_sent in izip(open(src_path, 'r'), open(dst_path, 'r')):
+        for src_sent, dst_sent in zip(open(src_path, 'r'), open(dst_path, 'r')):
             src_sent, dst_sent = src_sent.decode('utf8'), dst_sent.decode('utf8')
             src_sent = src_sent.split()
             dst_sent = dst_sent.split()

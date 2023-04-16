@@ -1,6 +1,6 @@
 from tensorflow.python.ops.rnn_cell import GRUCell
 
-from model import Model
+from models.model import Model
 from utils import *
 
 

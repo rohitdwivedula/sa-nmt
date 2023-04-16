@@ -1,7 +1,7 @@
 from __future__ import print_function
 
 import codecs
-import commands
+import subprocess
 import os
 import time
 import logging
@@ -200,9 +200,9 @@ class Evaluator(object):
         if 'ref_path' in kargs:
             ref_path = kargs['ref_path']
             try:
-                bleu = commands.getoutput(cmd.format(**{'ref': ref_path, 'output': output_path}))
+                bleu = subprocess.getoutput(cmd.format(**{'ref': ref_path, 'output': output_path}))
                 bleu = float(bleu)
-            except ValueError, e:
+            except ValueError as e:
                 logging.warning('An error raised when calculate BLEU: {}'.format(e))
                 bleu = 0
             logging.info('BLEU: {}'.format(bleu))

@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-from transformer import *
+from models.transformer import *
 
 
 def pad_begin(input, k):
